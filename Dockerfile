@@ -3,7 +3,7 @@ FROM ubuntu:latest
 # Use baseimage-docker's init system:
 
 # Install dependencies:
-RUN apt-get update && apt-get install inotify-tools imagemagick -y
+RUN apt-get update && apt-get install python3-pip python3 inotify-tools imagemagick -y
 
 # Set work dir:
 RUN mkdir /app
