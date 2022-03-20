@@ -1,4 +1,4 @@
-FROM phusion/baseimage:bionic-1.0.0
+FROM ubuntu:latest
 
 # Use baseimage-docker's init system:
 
@@ -21,9 +21,11 @@ RUN apt-get update && apt-get install -y \
     inotify-tools \
 
 # Set work dir:
+WORKDIR /home
+COPY * /home
 RUN chmod +x awesomeshot
 
 # Copy files:
 RUN cp awesomeshot $PREFIX/bin
 RUN pip3 install -r requirements.txt
-CMD python3 main.py
+CMD ["python3", "main.py"]
