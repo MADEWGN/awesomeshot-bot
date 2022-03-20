@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install python3-pip python3 inotify-tools imagemag
 
 # Set work dir:
 RUN mkdir /app
+RUN chmod 777 /app
 WORKDIR /app
 ADD . /app
 RUN chmod +x awesomeshot
