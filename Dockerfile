@@ -3,26 +3,12 @@ FROM ubuntu:latest
 # Use baseimage-docker's init system:
 
 # Install dependencies:
-RUN apt-get update && apt-get install -y \
-    bash \
-    curl \
-    sudo \
-    wget \
-    git \
-    make \
-    busybox \
-    build-essential \
-    nodejs \
-    imagemagick \
-    ffmpeg \
-    unzip \
-    python3-pip \
-    python3 \
-    inotify-tools \
+RUN apt-get update && apt-get install inotify-tools imagemagick -y
 
 # Set work dir:
-WORKDIR /home
-COPY * /home
+RUN mkdir /app
+WORKDIR /app
+ADD . /app
 RUN chmod +x awesomeshot
 
 # Copy files:
