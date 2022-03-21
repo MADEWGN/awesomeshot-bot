@@ -1,17 +1,15 @@
-FROM phusion/baseimage:bionic-1.0.0
+FROM ubuntu:latest
 
 # Use baseimage-docker's init system:
-CMD ["/sbin/my_init"]
+ENV TZ Asia/Jakarta
+# Install dependencies:
 RUN apt-get update && apt-get install python3-pip python3 inotify-tools imagemagick -y
 
-COPY awesomeshot /home
-COPY main.py /home
-COPY /plugins /home/stuff
-COPY 
-
-# Run config.sh and clean up APT:
-RUN sh /home/config.sh \
- && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+# Set work dir:
+RUN mkdir /app
+WORKDIR /app
+ADD . /app
+RUN chmod +x awesomeshot
 
 # Copy files:
 RUN cp awesomeshot $PREFIX/bin
