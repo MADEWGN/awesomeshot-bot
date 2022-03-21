@@ -13,9 +13,9 @@ import asyncio
 
 
 
-@Client.on_message(filters.command("start") & filters.private & filters.incoming)
-async def start(_, message):
-    pesan = await message.reply_text("halo bro")
+#@Client.on_message(filters.command("start") & filters.private & filters.incoming)
+#async def start(_, message):
+    #    pesan = await message.reply_text("halo")
 
 @Client.on_message(filters.command("ping") & filters.private & filters.incoming)
 async def ping(_, message):
