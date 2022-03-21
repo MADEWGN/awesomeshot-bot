@@ -1,7 +1,6 @@
-FROM ubuntu:latest
+FROM debian:10
 
-# Use baseimage-docker's init system:
-ENV TZ Asia/Jakarta
+ENV TZ="Asia/Jakarta"
 # Install dependencies:
 RUN apt-get update && apt-get install python3-pip python3 inotify-tools imagemagick -y
 
